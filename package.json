@@ -1,0 +1,19 @@
+{
+  "name": "usdx-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "subgraph"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/web",
+    "start": "npm run start -w apps/web",
+    "graph:codegen": "npm run codegen -w subgraph",
+    "graph:build": "npm run build -w subgraph"
+  },
+  "engines": {
+    "node": ">=18.18",
+    "npm": ">=9"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "usdx-subgraph",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "0.55.0",
+    "@graphprotocol/graph-ts": "0.34.0",
+    "assemblyscript": "0.27.6"
+  }
+}

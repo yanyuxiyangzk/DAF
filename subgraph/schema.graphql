@@ -1,0 +1,30 @@
+type VaultPosition @entity {
+  id: ID!
+  user: Bytes!
+  collateralUsd: BigDecimal!
+  debtUsd: BigDecimal!
+  ltvBps: Int!
+  updatedAt: BigInt!
+}
+
+type Auction @entity {
+  id: ID!
+  type: String!
+  payToken: Bytes!
+  receiveToken: Bytes!
+  payAmount: BigInt!
+  startPrice: BigInt!
+  minPrice: BigInt!
+  startTime: BigInt!
+  endTime: BigInt!
+  settled: Boolean!
+}
+
+type RWAAsset @entity {
+  id: ID!
+  issuerId: String!
+  navUsdE8: BigInt!
+  haircutBps: Int!
+  active: Boolean!
+  navUpdatedAt: BigInt!
+}

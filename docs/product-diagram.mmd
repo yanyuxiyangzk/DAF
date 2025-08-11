@@ -1,0 +1,22 @@
+graph TD
+  A[Frontend (Next.js)] -->|Wagmi/viem| B[Wallets]
+  A --> C[Backend APIs (optional)]
+  A --> D[Subgraph (The Graph)]
+  D --> E[USDx / Vault / Auction Events]
+  C --> F[Compliance / KYC]
+  C --> G[Oracle & NAV]
+  C --> H[Reporting]
+  E --> I[Contracts on L2]
+  I --> J[(PSM)]
+  I --> K[(Vault ERC-4626)]
+  I --> L[(StableSwap)]
+  I --> M[(AuctionHouse)]
+  I --> N[(RWA Registry)]
+
+  subgraph Users
+    U1[Retail / Pro]
+    U2[Institutional]
+  end
+
+  U1 --> A
+  U2 --> A

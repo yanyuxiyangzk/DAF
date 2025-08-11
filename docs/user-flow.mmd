@@ -1,0 +1,25 @@
+sequenceDiagram
+  participant U as User
+  participant W as Wallet
+  participant FE as Frontend
+  participant SC as Smart Contracts
+  participant SG as Subgraph
+
+  Note over U,SC: Mint Flow
+  U->>FE: Open /mint
+  FE->>W: Request signature / approve collateral
+  W-->>FE: Signature
+  FE->>SC: depositCollateral + mintUSDx
+  SC-->>FE: Transaction receipt
+  FE->>SG: Query position
+  SG-->>FE: Updated LTV/Health
+
+  Note over U,SC: Swap Flow
+  U->>FE: Open /swap
+  FE->>SC: swapExact via StableSwap/PSM
+  SC-->>FE: Transaction receipt
+
+  Note over U,SC: Auction Flow
+  U->>FE: Open /auctions
+  FE->>SC: bid on lot
+  SC-->>FE: Bid accepted

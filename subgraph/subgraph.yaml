@@ -1,0 +1,46 @@
+specVersion: 0.0.7
+schema:
+  file: ./schema.graphql
+
+dataSources:
+  - kind: ethereum
+    name: USDx
+    network: base
+    source:
+      address: "0x0000000000000000000000000000000000000000" # replace with deployed USDx
+      abi: USDx
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - VaultPosition
+      abis:
+        - name: USDx
+          file: ./abis/USDx.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleUSDxTransfer
+      file: ./src/mappings.ts
+
+  - kind: ethereum
+    name: AuctionHouse
+    network: base
+    source:
+      address: "0x0000000000000000000000000000000000000000" # replace with deployed AuctionHouse
+      abi: AuctionHouse
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Auction
+      abis:
+        - name: AuctionHouse
+          file: ./abis/AuctionHouse.json
+      eventHandlers:
+        - event: BidPlaced(indexed bytes32,indexed address,uint256,uint256)
+          handler: handleBidPlaced
+      file: ./src/mappings.ts

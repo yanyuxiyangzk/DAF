@@ -1,0 +1,13 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": true, "internalType": "bytes32", "name": "lotId", "type": "bytes32" },
+      { "indexed": true, "internalType": "address", "name": "bidder", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "indexed": false, "internalType": "uint256", "name": "price", "type": "uint256" }
+    ],
+    "name": "BidPlaced",
+    "type": "event"
+  }
+]
