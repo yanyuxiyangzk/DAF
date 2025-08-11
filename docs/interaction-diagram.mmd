@@ -1,0 +1,15 @@
+flowchart TD
+  A[Connect Wallet] --> B{KYC Tier?}
+  B -- None --> C[Prompt KYC]
+  B -- Retail/Pro/Inst --> D[Mint / Swap / Auctions]
+  D --> E{Mint?}
+  E -- Yes --> F[Approve + Deposit Collateral]
+  F --> G[Mint USDx]
+  E -- No --> H{Swap?}
+  H -- Yes --> I[StableSwap / PSM]
+  H -- No --> J{Auctions?}
+  J -- Yes --> K[Bid / Settle]
+  J -- No --> L[View Vault / Reports]
+  G --> M
+  I --> M
+  K --> M
